@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{TechnicalReferenceManual}
-\LoadClass[12pt,a4paper]{report}
+\LoadClass[twoside,12pt,a4paper]{report}
+\raggedbottom
 
 \RequirePackage{fullpage}
 \RequirePackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
@@ -16,6 +17,8 @@
 \RequirePackage{lscape}
 \RequirePackage[tikz]{bclogo}
 \RequirePackage[strict]{changepage}
+\RequirePackage{fancyhdr}
+%\RequirePackage{enumitem}
 
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -31,6 +34,28 @@
 
 
 \gdef\@versionCMD{\@latex@warning{No \version specified, ignoring.}}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADERS AND FOOTERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+
+\fancyfoot[LO, RE] {\textbf{\thepage}}
+\fancyfoot[RO]{\textit{chapter something or other}}
+\fancyfoot[LE]{\textit{\@title}}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{1pt}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,10 +107,6 @@
 	\end{titlepage}
 }
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% BACK COVER
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\makebackcover
 {
 	\pagebreak
@@ -131,15 +152,6 @@
 }
 
 
-\AtEndPreamble
-{
-	\@ifpackageloaded{hyperref}
-	{
-		\RequirePackage{xcolor}
-		\providecolor{bluelinkcolour}{HTML}{0000A0}
-		\hypersetup{colorlinks,allcolors=bluelinkcolour}
-	}{}
-}
 
 
 
@@ -155,6 +167,9 @@
 	\vfill{~}
 	\pagebreak
 }
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -191,6 +206,23 @@
 		\huge\bfseries\partname\nobreakspace\thepart: \Huge\bfseries #2\par
 	}
 	\@endpart
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AT END PREAMBLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtEndPreamble
+{
+	\@ifpackageloaded{hyperref}
+	{
+		\RequirePackage{xcolor}
+		\providecolor{bluelinkcolour}{HTML}{0000A0}
+		\hypersetup{colorlinks,allcolors=bluelinkcolour}
+	}{}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
