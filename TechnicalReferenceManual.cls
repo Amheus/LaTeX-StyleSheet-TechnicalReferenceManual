@@ -48,8 +48,8 @@
 \fancyfoot{}
 
 \fancyfoot[LO, RE] {\textbf{\thepage}}
-\fancyfoot[RO]{\textit{chapter something or other}}
-\fancyfoot[LE]{\textit{\@title}}
+\fancyfoot[RO]{\textit{\@title}}
+%\fancyfoot[LE]{\textit{\thechapter --- \chaptername --- \chaptermark}}
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{1pt}
