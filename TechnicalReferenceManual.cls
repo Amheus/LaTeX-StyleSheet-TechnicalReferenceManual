@@ -20,6 +20,14 @@
 \RequirePackage{fancyhdr}
 %\RequirePackage{enumitem}
 
+\lstset{
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	frame=single,
+	breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
@@ -34,6 +42,7 @@
 
 
 \gdef\@versionCMD{\@latex@warning{No \version specified, ignoring.}}
+
 
 
 
