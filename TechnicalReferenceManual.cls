@@ -116,6 +116,13 @@
 	\end{titlepage}
 }
 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BACK PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\makebackcover
 {
 	\pagebreak
@@ -126,7 +133,7 @@
 	%\includegraphics[width=8cm]{\@logoCMD}
 	\colorbox{gray!25}
 	{
-		\begin{minipage}{17.5cm}
+		\begin{minipage}{20cm}
 			\begin{minipage}{15cm}
 				\includegraphics[height=2cm]{\@logoCMD}
 			\end{minipage}
@@ -139,7 +146,7 @@
 	
 	\colorbox{gray!25}
 	{
-		\begin{minipage}{17.5cm}
+		\begin{minipage}{20cm}
 			\begin{minipage}{15cm}
 				~
 				
@@ -197,7 +204,7 @@
 		\@tempswafalse
 	\fi
 	
-	\null\vfil
+	\null\vfil\vfil\vfil\vfil\vfil
 	
 	\secdef\@part\@spart
 }
@@ -207,12 +214,20 @@
 	\refstepcounter{part}
 	\addcontentsline{toc}{part}{Part: \thepart\hspace{1em}#1}
 	
-	\markboth{}{}
+	\colorbox{gray!25}
 	{
-		\centering
-		\interlinepenalty\@M
-		\normalfont
-		\huge\bfseries\partname\nobreakspace\thepart: \Huge\bfseries #2\par
+		\begin{minipage}{20cm}
+			\begin{minipage}{15cm}
+				\markboth{}{}
+				{
+					\interlinepenalty\@M
+					\normalfont
+					\LARGE\bfseries\partname\nobreakspace\thepart:\\\fontsize{37.5}{37.5}\selectfont{\bfseries{#2\par}}
+					
+				}
+			\end{minipage}
+		\end{minipage}
+		
 	}
 	\@endpart
 }
